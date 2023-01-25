@@ -1,6 +1,4 @@
-﻿
-
-using System.Text;
+﻿using System.Text;
 
 namespace Calculator
 {
@@ -12,72 +10,83 @@ namespace Calculator
             do {
 
                 Calculator calc = new Calculator();
-                string answer = calc.Calculate(Console.ReadLine()).ToString();
-                Console.WriteLine(answer);
 
-            } while (true);
+                string? input = Console.ReadLine();
+                if (input != null)
+                {
+                    string answer = calc.Calculate(input).ToString();
+                    Console.WriteLine(answer);
+                }
+
+            } while (true); //TODO catch ESC, end prog
         }
 
 
-        Queue<string> outPut = new Queue<string>();
-        char[] OperatorChars = { '+', '-', '*', '/', '^', '(',')' };
-        int[] OperatorPresidenc = { 2,2,3,3,4,              0,0};
+        
+        readonly char[] OperatorChars = { '+', '-', '*', '/', '^', '(',')' };
+        readonly int[] OperatorPresidenc = { 2,2,3,3,4,              0,0};
 
         public float Calculate(string Input)
         {
-            Input = Input.Replace(" ", ""); // strip white space out
-            outPut= parseToReverseHungarionNotation(Input);
+            // strip white space out
+            Input = Input.Replace(" ", ""); 
 
-            
-
-            return calculate(outPut);
+            Queue<string> outPut = parseToReverseHungarionNotation(Input);
+            return ProcessCalculation(outPut);
         }
 
-        private float calculate(Queue<string> calculation)
+        private float ProcessCalculation(Queue<string> calculationQueue)
         {
-            Stack<float> stack = new Stack<float>();
+            Stack<float> OutputStack = new Stack<float>();
 
-            while(calculation.Count > 0) 
+            while(calculationQueue.Count > 0) 
             {
-                string Token = calculation.Dequeue();
+                string Token = calculationQueue.Dequeue();
 
-                float TokenAsInt;
-                if(float.TryParse(Token, out TokenAsInt))
+                float TokenAsFloat;
+                if(float.TryParse(Token, out TokenAsFloat))
                 {
-                    stack.Push(TokenAsInt);
+                    OutputStack.Push(TokenAsFloat);
                 }
                 else //we assume its a command
                 {
-                    float b = stack.Pop();
-                    float a = stack.Pop();
+                    float OperandB = OutputStack.Pop();
+                    float OperandA = OutputStack.Pop();
 
-                    float answer = parseTokens(a, b, Token.ToCharArray()[0]);
-                    stack.Push(answer);
+                    float answer = ComputeOperation(OperandA, OperandB, Token.ToCharArray()[0]);
+                    OutputStack.Push(answer);
                 }
             }
 
-            return stack.Pop();
+            return OutputStack.Pop();
         }
 
-        private float parseTokens(float A, float B, char commandChar)
+        /// <summary>
+        /// takes the operands and operator and calculates the result
+        /// </summary>
+        /// <param name="OperandA"></param>
+        /// <param name="OperandB"></param>
+        /// <param name="Operator"></param>
+        /// <returns>the result of the operation</returns>
+        private float ComputeOperation(float OperandA, float OperandB, char Operator)
         {
             float answer = 0;
-            switch(commandChar)
+            switch(Operator)
             {
                 case '+':
-                    answer = A + B;
+                    answer = OperandA + OperandB;
                     break;
                 case '-':
-                    answer = A - B;
+                    answer = OperandA - OperandB;
                     break;
                 case '*':
-                    answer = A * B;
+                    answer = OperandA * OperandB;
                     break;
                 case '/':
-                    answer = A / B;
+                    answer = OperandA / OperandB;
                     break;
                 case '^':
-                    answer = (int)Math.Pow(A, B);
+                    answer = (int)Math.Pow(OperandA, OperandB);
                     break;
                 default:
                     //not a command????
@@ -88,35 +97,44 @@ namespace Calculator
             return answer;
         }
 
+
+
+        /// <summary>
+        /// replaces - with ! to denote negatve numbers, only when - is used for negative numbers and not as operation
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private string parseStringForNegatives(string input)
         {
-            StringBuilder sb = new StringBuilder(input);
-            if (sb[0] == '-')
-                sb[0] = '!';
+
+            //used a string builder as its easier to replace substrings and its more efficient.
+            StringBuilder InputStringBuilder = new StringBuilder(input);
+
+            //if first char is a -, replace with ! to denote negative number/
+            if (InputStringBuilder[0] == '-')
+                InputStringBuilder[0] = '!';
+
+            //TODO automate the construction of the strings and loop. 
+            InputStringBuilder = InputStringBuilder.Replace("+-", "+!");
+            InputStringBuilder = InputStringBuilder.Replace("--", "-!");
+            InputStringBuilder = InputStringBuilder.Replace("*-", "*!");
+            InputStringBuilder = InputStringBuilder.Replace("/-", "/!");
+            InputStringBuilder = InputStringBuilder.Replace("^-", "^!");
+            InputStringBuilder = InputStringBuilder.Replace("(-", "(!");
+            InputStringBuilder = InputStringBuilder.Replace(")-", ")!");
 
 
-            sb =sb.Replace("+-", "+!");
-            sb =sb.Replace("--", "-!");
-            sb =sb.Replace("*-", "*!");
-            sb =sb.Replace("/-", "/!");
-            sb = sb.Replace("^-", "^!");
-            sb = sb.Replace("(-", "(!");
-            sb = sb.Replace(")-", ")!");
-
-
-            return sb.ToString();
+            return InputStringBuilder.ToString();
         }
 
         private Queue<string> parseToReverseHungarionNotation(string input)
         {
             input = parseStringForNegatives(input);
 
-
-            Queue<string> tokenNumbers = new Queue<string>(input.Split(OperatorChars));//might want to check for - + * and no numbers
+            //split input string by the operator char list, so we get the Operands
+            Queue<string> operandTokens = new Queue<string>(input.Split(OperatorChars));//might want to check for - + * and no numbers
 
            
-
-
             Queue<string> output = new Queue<string>();
             Stack<string> OperandStack = new Stack<string>();
 
@@ -124,25 +142,31 @@ namespace Calculator
 
             while (input.Length>0)
             {
-                string currentTokenNumber = tokenNumbers.Dequeue();
+                string operandTokenNumber = operandTokens.Dequeue();
                 
-                input = input.Substring(currentTokenNumber.Length);
+                //remove the chars for the current of the current number, from the input.
+                input = input.Substring(operandTokenNumber.Length);
 
-                if (currentTokenNumber != "")
+                if (operandTokenNumber != "")//check current token is no blank. they sometimes creep in from the string split.
                 {
-                    currentTokenNumber = currentTokenNumber.Replace("!", "-");
-                    output.Enqueue(currentTokenNumber);
+                    //replace ! with - to preserve the sign of the number
+                    operandTokenNumber = operandTokenNumber.Replace("!", "-");
+                    output.Enqueue(operandTokenNumber);
                 }
 
                
                 if (input.Length > 0)
                 {
+                    //get operator 
                     string operatorToken = input.Substring(0, 1);
+                    //remove operator from input
                     input = input.Remove(0, 1);
 
+                    //if token is (, we need to push it to the stack and do nothing this ireraation.
                     if (operatorToken != "(" && OperandStack.Count > 0)
                     {
                         
+                        //if operator is ), pop all, from operandStack, untill we find the (
                         if (operatorToken == ")")
                         {
                             while(OperandStack.Peek() !="(")
@@ -151,23 +175,23 @@ namespace Calculator
                         }
                         else
                         {
-                            int index = Array.IndexOf(OperatorChars, operatorToken.ToCharArray()[0]);
-                            int PresidenceOfCurrentToken = OperatorPresidenc[index];
+                            int PresidenceOfCurrentToken = GetPresidenceForOperator(operatorToken);
+                            int PresidenceOfLastToken = GetPresidenceForOperator(OperandStack.Peek());
 
-                            index = Array.IndexOf(OperatorChars, OperandStack.Peek().ToCharArray()[0]);
-                            int PresidenceOfLastToken = OperatorPresidenc[index];
-                            
-                            if(PresidenceOfCurrentToken == PresidenceOfLastToken)
+                            //if presidenc of currint operator is == to last operator
+                            //pop operator stack to output, to preserve order of operations
+                            if (PresidenceOfCurrentToken == PresidenceOfLastToken)
                             {
                                 output.Enqueue(OperandStack.Pop());
-
                             }
+                            //else if presidence is greater, pop lower presidence to preserve BODMAS
                             else if (PresidenceOfCurrentToken < PresidenceOfLastToken)
                                 while (OperandStack.Count > 0)
                                     output.Enqueue(OperandStack.Pop());
                         }
                     }
 
+                    //push operator to output stack, inc (
                     if(operatorToken!=")")
                         OperandStack.Push(operatorToken);
 
@@ -176,12 +200,24 @@ namespace Calculator
 
             }
 
+            //pop all remaning operators to output
             while(OperandStack.Count > 0)
                 output.Enqueue(OperandStack.Pop());
 
             return output;
         }
 
+        /// <summary>
+        /// jooks up the presidence value, of the given operatorToken, in the OperatoPresidenc array
+        /// </summary>
+        /// <param name="operatorToken"></param>
+        /// <returns>the presidence of the given operator</returns>
+        private int GetPresidenceForOperator(string operatorToken)
+        {
+            int index = Array.IndexOf(OperatorChars, operatorToken.ToCharArray()[0]);
+            int PresidenceOfCurrentToken = OperatorPresidenc[index];
+            return PresidenceOfCurrentToken;
+        }
     }
 
 }
