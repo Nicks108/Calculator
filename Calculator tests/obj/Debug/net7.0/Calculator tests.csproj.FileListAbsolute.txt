@@ -1,0 +1,105 @@
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\CoverletSourceRootsMapping
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\testhost.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Calculator.deps.json
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Calculator.runtimeconfig.json
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Calculator.exe
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\testhost.exe
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\NUnit3.TestAdapter.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\NUnit3.TestAdapter.pdb
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\nunit.engine.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\nunit.engine.api.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\nunit.engine.core.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\testcentric.engine.metadata.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Calculator tests.deps.json
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Calculator tests.runtimeconfig.json
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Calculator tests.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Calculator tests.pdb
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Microsoft.TestPlatform.CoreUtilities.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Microsoft.TestPlatform.PlatformAbstractions.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Microsoft.TestPlatform.CommunicationUtilities.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Microsoft.TestPlatform.CrossPlatEngine.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Microsoft.TestPlatform.Utilities.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Microsoft.VisualStudio.TestPlatform.Common.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\NuGet.Frameworks.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\nunit.framework.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\de\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\de\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\es\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\es\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\fr\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\fr\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\it\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\it\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ja\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ja\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ko\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ko\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\pl\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\pl\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\pt-BR\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\pt-BR\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ru\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ru\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\tr\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\tr\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\zh-Hans\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\zh-Hant\Microsoft.TestPlatform.CoreUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\cs\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\cs\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\cs\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\de\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\de\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\de\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\es\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\es\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\es\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\fr\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\fr\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\fr\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\it\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\it\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\it\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ja\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ja\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ja\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ko\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ko\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ko\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\pl\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\pl\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\pl\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\pt-BR\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\pt-BR\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\pt-BR\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ru\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ru\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\ru\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\tr\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\tr\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\tr\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\zh-Hans\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\zh-Hans\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Calculator.dll
+D:\Repos\Calculator\Calculator tests\bin\Debug\net7.0\Calculator.pdb
+D:\Repos\Calculator\Calculator tests\obj\Debug\net7.0\Calculator tests.csproj.AssemblyReference.cache
+D:\Repos\Calculator\Calculator tests\obj\Debug\net7.0\Calculator tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repos\Calculator\Calculator tests\obj\Debug\net7.0\Calculator tests.AssemblyInfoInputs.cache
+D:\Repos\Calculator\Calculator tests\obj\Debug\net7.0\Calculator tests.AssemblyInfo.cs
+D:\Repos\Calculator\Calculator tests\obj\Debug\net7.0\Calculator tests.csproj.CoreCompileInputs.cache
+D:\Repos\Calculator\Calculator tests\obj\Debug\net7.0\Calculator tests.csproj.CopyComplete
+D:\Repos\Calculator\Calculator tests\obj\Debug\net7.0\Calculator tests.dll
+D:\Repos\Calculator\Calculator tests\obj\Debug\net7.0\refint\Calculator tests.dll
+D:\Repos\Calculator\Calculator tests\obj\Debug\net7.0\Calculator tests.pdb
+D:\Repos\Calculator\Calculator tests\obj\Debug\net7.0\Calculator tests.genruntimeconfig.cache
+D:\Repos\Calculator\Calculator tests\obj\Debug\net7.0\ref\Calculator tests.dll
