@@ -6,15 +6,29 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-
+            Calculator calc = new Calculator();
             do {
+                //string hex =Console.ReadLine();
+                //int value = Convert.ToInt32(hex, 16);
+                //Console.WriteLine(value);
 
-                Calculator calc = new Calculator();
+                //Console.WriteLine("is hex?");
+                //if(Console.ReadLine().ToLower().Contains('y'))
+                //    calc.isHex= true;
 
+                Console.Write("Enter the floating point precision (blank For Default):");
+                string precision = Console.ReadLine();
+
+
+                Console.WriteLine("Please enter the calculation");
                 string? input = Console.ReadLine();
                 if (input != null)
                 {
-                    string answer = calc.Calculate(input).ToString();
+                    string answer;
+                    if (precision.Length >0)
+                        answer = calc.Calculate(input).ToString("n"+precision);
+                    else
+                        answer = calc.Calculate(input).ToString();
                     Console.WriteLine(answer);
                 }
 
@@ -22,9 +36,10 @@ namespace Calculator
         }
 
 
+        bool isHex = false;
         
-        readonly char[] OperatorChars = { '+', '-', '*', '/', '^', '(',')' };
-        readonly int[] OperatorPresidenc = { 2,2,3,3,4,              0,0};
+        readonly char[] OperatorChars = { '+', '-', '*', '/', '^', '(',')', '!', 's', 'c', 'l', 't' };
+        readonly int[] OperatorPresidenc = { 2,2,3,3,4,              0,0,    5,   5,   5,   5,   5};
 
         public float Calculate(string Input)
         {
@@ -32,6 +47,7 @@ namespace Calculator
             Input = Input.Replace(" ", ""); 
 
             Queue<string> outPut = parseToReverseHungarionNotation(Input);
+
             return ProcessCalculation(outPut);
         }
 
@@ -46,19 +62,69 @@ namespace Calculator
                 float TokenAsFloat;
                 if(float.TryParse(Token, out TokenAsFloat))
                 {
+                    
                     OutputStack.Push(TokenAsFloat);
                 }
                 else //we assume its a command
                 {
-                    float OperandB = OutputStack.Pop();
-                    float OperandA = OutputStack.Pop();
+                    float answer;
+                    if (Token == "!" || Token == "s" || Token == "c"|| Token == "t"|| Token == "l")
+                    {
+                        answer = ComputeFuncitonOperation(OutputStack.Pop(), Token.ToCharArray()[0]);
+                    }
+                    else
+                    {
+                        float OperandB = OutputStack.Pop();
+                        float OperandA = OutputStack.Pop();
 
-                    float answer = ComputeOperation(OperandA, OperandB, Token.ToCharArray()[0]);
+                        answer = ComputeOperation(OperandA, OperandB, Token.ToCharArray()[0]);
+                        
+                    }
                     OutputStack.Push(answer);
                 }
             }
 
             return OutputStack.Pop();
+        }
+
+        private float Factoral(float input)
+        {
+            int result = 1;
+            for (int i = (int)input; i > 0; i--)
+                result *= i;
+            return result;  
+        }
+
+
+
+        private float ComputeFuncitonOperation(float OperandA, char Operator)
+        {
+            float answer = 0;
+            switch (Operator)
+            {
+                case '!':
+                    answer = Factoral(OperandA);
+                    break;
+                case 's':
+                    answer = (float)Math.Sin(OperandA);
+                    break;
+                case 'l':
+                    answer = (float)Math.Log(OperandA);
+                    break;
+                case 'c':
+                    answer = (float)Math.Cos(OperandA);
+                    break;
+                case 't':
+                    answer = (float)Math.Tan(OperandA);
+                    break;
+
+                default:
+                    //not a command????
+                    break;
+
+            }
+
+            return answer;
         }
 
         /// <summary>
@@ -86,8 +152,9 @@ namespace Calculator
                     answer = OperandA / OperandB;
                     break;
                 case '^':
-                    answer = (int)Math.Pow(OperandA, OperandB);
+                    answer = (float)Math.Pow(OperandA, OperandB);
                     break;
+                
                 default:
                     //not a command????
                     break;
@@ -100,7 +167,7 @@ namespace Calculator
 
 
         /// <summary>
-        /// replaces - with ! to denote negatve numbers, only when - is used for negative numbers and not as operation
+        /// replaces - with £ to denote negatve numbers, only when - is used for negative numbers and not as operation
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
@@ -110,31 +177,49 @@ namespace Calculator
             //used a string builder as its easier to replace substrings and its more efficient.
             StringBuilder InputStringBuilder = new StringBuilder(input);
 
-            //if first char is a -, replace with ! to denote negative number/
+            //if first char is a -, replace with £ to denote negative number/
             if (InputStringBuilder[0] == '-')
-                InputStringBuilder[0] = '!';
+                InputStringBuilder[0] = '£';
 
             //TODO automate the construction of the strings and loop. 
-            InputStringBuilder = InputStringBuilder.Replace("+-", "+!");
-            InputStringBuilder = InputStringBuilder.Replace("--", "-!");
-            InputStringBuilder = InputStringBuilder.Replace("*-", "*!");
-            InputStringBuilder = InputStringBuilder.Replace("/-", "/!");
-            InputStringBuilder = InputStringBuilder.Replace("^-", "^!");
-            InputStringBuilder = InputStringBuilder.Replace("(-", "(!");
-            InputStringBuilder = InputStringBuilder.Replace(")-", ")!");
+            InputStringBuilder = InputStringBuilder.Replace("+-", "+£");
+            InputStringBuilder = InputStringBuilder.Replace("--", "-£");
+            InputStringBuilder = InputStringBuilder.Replace("*-", "*£");
+            InputStringBuilder = InputStringBuilder.Replace("/-", "/£");
+            InputStringBuilder = InputStringBuilder.Replace("^-", "^£");
+            InputStringBuilder = InputStringBuilder.Replace("(-", "(£");
+            InputStringBuilder = InputStringBuilder.Replace(")-", ")£");
 
+
+            return InputStringBuilder.ToString();
+        }
+
+        private string ReplaceFunctions(string input)
+        {
+            input = input.ToLower();
+            //used a string builder as its easier to replace substrings and its more efficient.
+            StringBuilder InputStringBuilder = new StringBuilder(input);
+
+            InputStringBuilder = InputStringBuilder.Replace("sin", "s");
+            InputStringBuilder = InputStringBuilder.Replace("cos", "c");
+            InputStringBuilder = InputStringBuilder.Replace("tan", "t");
+            InputStringBuilder = InputStringBuilder.Replace("log", "l");
+            
 
             return InputStringBuilder.ToString();
         }
 
         private Queue<string> parseToReverseHungarionNotation(string input)
         {
+            
+
             input = parseStringForNegatives(input);
+            input = ReplaceFunctions(input);
 
             //split input string by the operator char list, so we get the Operands
             Queue<string> operandTokens = new Queue<string>(input.Split(OperatorChars));//might want to check for - + * and no numbers
+            
 
-           
             Queue<string> output = new Queue<string>();
             Stack<string> OperandStack = new Stack<string>();
 
@@ -150,7 +235,7 @@ namespace Calculator
                 if (operandTokenNumber != "")//check current token is no blank. they sometimes creep in from the string split.
                 {
                     //replace ! with - to preserve the sign of the number
-                    operandTokenNumber = operandTokenNumber.Replace("!", "-");
+                    operandTokenNumber = operandTokenNumber.Replace("£", "-");
                     output.Enqueue(operandTokenNumber);
                 }
 
